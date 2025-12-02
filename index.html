@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flix — Mini Front Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">FLIX</div>
+    <nav class="nav">
+      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link" href="#">TV Shows</a>
+      <a class="nav-link" href="#">Movies</a>
+      <a class="nav-link" href="#">My List</a>
+    </nav>
+    <div class="header-actions">
+      <input id="search" placeholder="Search" />
+      <button id="signin">Sign In</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Featured Title</h1>
+        <p class="muted">A gripping story. Mood: thrilling • 2h 12m • 2024</p>
+        <div class="hero-buttons">
+          <button class="btn play" data-id="1">▶ Play</button>
+          <button class="btn info" data-id="1">ℹ More info</button>
+        </div>
+      </div>
+      <div class="hero-gradient"></div>
+    </section>
+
+    <section class="row" aria-label="Popular on Flix">
+      <h2>Popular on Flix</h2>
+      <div class="row-posters" id="row1">
+        <!-- posters inserted by JS -->
+      </div>
+    </section>
+
+    <section class="row" aria-label="Trending">
+      <h2>Trending</h2>
+      <div class="row-posters" id="row2"></div>
+    </section>
+
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner">
+      <button id="closeModal" class="close">✕</button>
+      <div id="modalContent">
+        <!-- injected -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <small>Not affiliated with Netflix • Demo only</small>
+  </footer>
+
+<script src="script.js"></script>
+<div class="screen-glitch"></div>
+</body>
+</html>
+
+<script>
+document.addEventListener('scroll', () => {
+    for (let i = 0; i < 3; i++) {   // more = denser leaf effect
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.animationDuration = (3 + Math.random() * 3) + 's';
+        document.body.appendChild(leaf);
+        setTimeout(() => leaf.remove(), 6000);
+    }
+});
+</script>
+
